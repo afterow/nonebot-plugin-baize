@@ -1,12 +1,10 @@
 from typing import Optional, List
 
 from pydantic import BaseModel
-
 import os
 
 
-
-class ConfigModel(BaseModel):
+class Config(BaseModel):
     baize_question_path: str = os.path.join(os.path.dirname(__file__), "questions.json")
     baize_verify_timeout: int = 60  # 验证超时时间 (秒)
     baize_on_success: Optional[str] = None  # 验证成功后执行的操作 (例如 "approve")
