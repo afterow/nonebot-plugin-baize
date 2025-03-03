@@ -12,5 +12,3 @@ class ConfigModel(BaseModel):
     baize_verify_timeout: int = 60  # 验证超时时间 (秒)
     baize_on_success: Optional[str] = None  # 验证成功后执行的操作 (例如 "approve")
     baize_on_fail: Optional[str] = None  # 验证失败后执行的操作 (例如 "kick")
-    baize_keywords: List[str] = []  # 关键词列表
-
