@@ -5,13 +5,13 @@ from nonebot import on_notice, on_message, get_driver
 from nonebot.adapters.onebot.v11 import GroupIncreaseNoticeEvent, PrivateMessageEvent, Bot
 from nonebot.params import EventPlainText
 from nonebot.rule import is_type
-from .config import ConfigModel
+from .config import Config
 
 # 全局变量存储验证信息
 verifying_users: Dict[int, Dict[str, Any]] = {}
 
 # 加载配置
-config: ConfigModel = ConfigModel.model_validate(get_driver().config.model_dump())
+config: Config = Config.model_validate(get_driver().config.model_dump())
 
 # 加载题库
 try:
