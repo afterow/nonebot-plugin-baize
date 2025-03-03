@@ -76,3 +76,33 @@ async def handle_group_increase(bot: Bot, event: GroupIncreaseNoticeEvent):
                 print(f"踢出用户 {user_id} 失败: {e}")
 
     asyncio.create_task(remove_user_after_timeout(user_id, config.baize_verify_timeout))
+
+
+private_message = on_message(rule=is_type(PrivateMessageEvent))
+
+
+@private_message.handle()
+async def handle_private_message(bot: Bot, event: PrivateMessageEvent, message: str = EventPlainText()):
+    global verifying_users, config
+
+    user_id = event.user_id
+
+    if user_id in verifying_users:
+        group_id = verifying_users[user_id]["group_id"]
+        correct_answer = verifying_users[user_id]["answer"]
+        sub_type = verifying_users[user_id]["sub_type"]  # 获取 sub_type 值
+
+        # 答案验证
+        if config.baize_answer_mode == "exact":
+            result = message == correct_answer
+        elif config.baize_answer_mode == "keyword":
+            result = any(keyword in message for keyword in config.baize_keywords)
+        else:
+            result = False
+
+        if result:
+            await private_message.send(f"验证通过！欢迎加入本群！")
+            del verifying_users[user_id]
+        else:
+            await private_message.send("答案错误，请重新回答。")
+    # 可以在这里添加其他私聊消息处理逻辑
