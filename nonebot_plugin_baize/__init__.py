@@ -1,7 +1,7 @@
 from nonebot.plugin import PluginMetadata, inherit_supported_adapters
 
 from 。 import __main__ as __main__
-from .config import ConfigModel
+from .config import Config
 
 __plugin_meta__ = PluginMetadata(
     name="{白泽群管}",
