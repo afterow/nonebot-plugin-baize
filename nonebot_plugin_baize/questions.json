@@ -1,0 +1,22 @@
+[
+  {
+    "question": "请问 NoneBot2 的核心是什么？",
+    "answer": "Matcher 和 Rule"
+  },
+  {
+    "question": "在 NoneBot2 中，如何注册一个命令消息事件响应器？",
+    "answer": "使用 on_command 装饰器"
+  },
+  {
+    "question": "NoneBot2 中，Rule对象的作用是什么？",
+    "answer": "定义事件响应规则"
+  },
+  {
+    "question": "请说出 NoneBot2 的一个适配器名称。",
+    "answer": "OneBot V11"
+  },
+  {
+    "question": "NoneBot2 中，如何加载插件？",
+    "answer": "使用 nonebot.load_plugin 或 nonebot.load_plugins 等函数"
+  }
+]

@@ -1,0 +1,25 @@
+[project]
+name = "nonebot-plugin-baize"
+dynamic = ["version"]
+description = "A group authentication plugin based on the Baize myth"
+dependencies = ["nonebot2>=2.4.1"]
+requires-python = ">=3.9,<4.0"
+readme = "README.md"
+license = { text = "MIT" }
+
+[project.urls]
+homepage = "https://github.com/afterow/nonebot-plugin-baize" # 替换为你的 GitHub 仓库地址
+
+[dependency-groups]
+dev = []
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.pdm.build]
+includes = ["nonebot_plugin_baize"] # 确保包含你的插件目录
+
+[tool.pdm.version]
+source = "file"
+path = "nonebot_plugin_baize/__init__.py"
