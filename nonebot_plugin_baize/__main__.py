@@ -1,12 +1,10 @@
 import asyncio
 import json
 from typing import Dict, Any
-
 from nonebot import on_notice, on_message, get_driver
 from nonebot.adapters.onebot.v11 import GroupIncreaseNoticeEvent, PrivateMessageEvent, Bot
 from nonebot.params import EventPlainText
 from nonebot.rule import is_type
-
 from .config import ConfigModel
 
 # 全局变量存储验证信息
@@ -57,7 +55,7 @@ async def handle_group_increase(bot: Bot, event: GroupIncreaseNoticeEvent):
         "answer": answer,
         "timestamp": asyncio.get_event_loop().time(),
         "sub_type": sub_type,  # 记录 sub_type 值
-        "bot": bot  # 存储 bot 实例
+        "bot": bot,  # 存储 bot 实例
     }
 
     # 设置超时，并直接在handle_group_increase中处理超时逻辑
@@ -70,7 +68,9 @@ async def handle_group_increase(bot: Bot, event: GroupIncreaseNoticeEvent):
             print(f"用户 {user_id} 验证超时，开始移除。")
             # 可以在这里执行踢出群组等操作
             try:
-                await bot.set_group_kick(group_id=group_id, user_id=user_id, reject_add_request=True)
+                await bot.set_group_kick(
+                    group_id=group_id, user_id=user_id, reject_add_request=True
+                )
                 print(f"用户 {user_id} 验证超时，已从群 {group_id} 踢出。")
             except Exception as e:
                 print(f"踢出用户 {user_id} 失败: {e}")
@@ -82,9 +82,10 @@ private_message = on_message(rule=is_type(PrivateMessageEvent))
 
 
 @private_message.handle()
-async def handle_private_message(bot: Bot, event: PrivateMessageEvent, message: str = EventPlainText()):
+async def handle_private_message(
+    bot: Bot, event: PrivateMessageEvent, message: str = EventPlainText()
+):
     global verifying_users, config
-
     user_id = event.user_id
 
     if user_id in verifying_users:
@@ -93,12 +94,7 @@ async def handle_private_message(bot: Bot, event: PrivateMessageEvent, message: 
         sub_type = verifying_users[user_id]["sub_type"]  # 获取 sub_type 值
 
         # 答案验证
-        if config.baize_answer_mode == "exact":
-            result = message == correct_answer
-        elif config.baize_answer_mode == "keyword":
-            result = any(keyword in message for keyword in config.baize_keywords)
-        else:
-            result = False
+        result = message == correct_answer
 
         if result:
             await private_message.send(f"验证通过！欢迎加入本群！")
