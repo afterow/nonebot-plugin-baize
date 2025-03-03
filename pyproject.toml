@@ -2,7 +2,7 @@
 name = "nonebot-plugin-baize"
 dynamic = ["version"]
 description = "A group authentication plugin based on the Baize myth"
-dependencies = ["nonebot2>=2.4.1"，"nonebot-adapter-onebot"]
+dependencies = ["nonebot2>=2.4.1","nonebot-adapter-onebot"]
 requires-python = ">=3.9,<4.0"
 readme = "README.md"
 license = { text = "MIT" }
