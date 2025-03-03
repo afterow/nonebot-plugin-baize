@@ -1,22 +1,42 @@
 [
   {
-    "question": "请问 NoneBot2 的核心是什么？",
-    "answer": "Matcher 和 Rule"
+    "question": "5 + 7 等于多少？",
+    "answer": "12"
   },
   {
-    "question": "在 NoneBot2 中，如何注册一个命令消息事件响应器？",
-    "answer": "使用 on_command 装饰器"
+    "question": "18 - 6 等于多少？",
+    "answer": "12"
   },
   {
-    "question": "NoneBot2 中，Rule对象的作用是什么？",
-    "answer": "定义事件响应规则"
+    "question": "9 + 3 等于多少？",
+    "answer": "12"
   },
   {
-    "question": "请说出 NoneBot2 的一个适配器名称。",
-    "answer": "OneBot V11"
+    "question": "15 - 8 等于多少？",
+    "answer": "7"
   },
   {
-    "question": "NoneBot2 中，如何加载插件？",
-    "answer": "使用 nonebot.load_plugin 或 nonebot.load_plugins 等函数"
+    "question": "中国的首都是哪里？",
+    "answer": "北京"
+  },
+  {
+    "question": "3 + 12 等于多少？",
+    "answer": "15"
+  },
+  {
+    "question": "20 - 5 等于多少？",
+    "answer": "15"
+  },
+  {
+    "question": "11 + 9 等于多少？",
+    "answer": "20"
+  },
+    {
+    "question": "16 - 4 等于多少？",
+    "answer": "12"
+  },
+  {
+    "question": "7 + 6 等于多少？",
+    "answer": "13"
   }
 ]
