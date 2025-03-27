@@ -24,9 +24,6 @@ classifiers = [
 ]
 
 [tool.nonebot]
-adapters = [
-    { name = "OneBot V11", module_name = "nonebot.adapters.onebot.v11" }
-]
 plugins = ["nonebot_plugin_baize"]
 plugin_dirs = ["nonebot_plugin_baize"]
 builtin_plugins = ["echo"]

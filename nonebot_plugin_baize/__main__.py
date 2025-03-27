@@ -46,7 +46,7 @@ async def handle_group_increase(bot: Bot, event: GroupIncreaseNoticeEvent):
     answer = question_data["answer"]
 
     # 将问题发送到群组
-    await group_increase.send(f"欢迎 {user_id} 加入本群！请私聊我回答以下问题进行验证：\n{question}")
+    await group_increase.send(f"欢迎 {user_id} 加入本群！请私聊我回答以下问题进行验证(回答不出会被踢哦)：\n{question}")
 
     # 记录验证信息
     verifying_users[user_id] = {
@@ -69,7 +69,7 @@ async def handle_group_increase(bot: Bot, event: GroupIncreaseNoticeEvent):
             # 可以在这里执行踢出群组等操作
             try:
                 await bot.set_group_kick(
-                    group_id=group_id, user_id=user_id, reject_add_request=True
+                    group_id=group_id, user_id=user_id,
                 )
                 print(f"用户 {user_id} 验证超时，已从群 {group_id} 踢出。")
             except Exception as e:
