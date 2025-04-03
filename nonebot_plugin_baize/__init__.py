@@ -3,7 +3,7 @@ from nonebot.plugin import PluginMetadata, inherit_supported_adapters
 from . import __main__ as __main__
 from .config import Config
 
-__version__ = "1.1.0"
+__version__ = "1.2.0"
 __plugin_meta__ = PluginMetadata(
     name="白泽群管",
     description="基于山海经白泽神兽的群验证插件",
